@@ -9,7 +9,7 @@ import math
 rx = re.compile(r'"[^"]*"(*SKIP)(*FAIL)|,\s*')
 
 print('Automatische Auswertung für Ergebnisse aus Varian ICP Expert')
-print('Author: Hendrik Marx | Version: 1.0.1')
+print('Author: Hendrik Marx | Version: 1.0.2 | 2024-01-31')
 print('.csv im selben Ordner platzieren und Dateinamen ohne Endung eingeben')
 file = input()
 
@@ -222,7 +222,7 @@ for i in cal:
     calibrate.write(row + 1, col, i[0])
     calibrate.write(row + 1, col + 1, ', '.join(str(e) for e in i[1:-5]))
     calibrate.write(row + 1, col + 2, 'y = ' + '{:.2f}'.format(i[-5]) + 'x + ' + '{:.2f}'.format(i[-4]))
-    calibrate.write(row + 1, col + 3, '{:.6f}'.format(i[-3]))
+    calibrate.write(row + 1, col + 3, i[-3])
     calibrate.write(row + 1, col + 4, i[-2])
     calibrate.write(row + 1, col + 5, i[-1])
     row += 3
